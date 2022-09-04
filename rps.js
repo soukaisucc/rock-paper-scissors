@@ -15,24 +15,24 @@ function playRound(playerSelection, computerSelection) {
 
    if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
       computerScore++;
-      return 'Computer W';
+      return 'Computer round W';
    } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
       playerScore++;
-      return 'Player W';
+      return 'Player round W';
    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
       playerScore++;
-      return 'Player W';
+      return 'Player round W';
    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
       computerScore++;
-      return 'Computer W';
+      return 'Computer round W';
    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
       computerScore++;
-      return 'Computer W';
+      return 'Computer round W';
    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
       playerScore++;
-      return 'Player W';
+      return 'Player round W';
    } else {
-      return 'Tied';
+      return 'Tied the round';
    }
 
 }
@@ -50,7 +50,7 @@ function game () {
    } else if (computerScore > playerScore) {
       console.log('Common player L. Score of ' + playerScore + ' to '  + computerScore); 
    } else {
-      console.log('Tied the game!');
+      console.log('Tied the game! Score of ' + playerScore + ' to '  + computerScore);
    }
 
 }
