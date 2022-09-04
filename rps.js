@@ -1,5 +1,5 @@
 let playerScore = 0;
-let computeScore = 0;
+let computerScore = 0;
 
 let computerOptions = ['rock', 'paper', 'scissors'];
 
@@ -13,21 +13,26 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-   playerSelection = prompt("Will you select Rock, Paper, or Scissors?");
-   computerSelection = getComputerChoice();
-
-   if (playerSelection.toLowerCase() === computerSelection) {
-      return "Tie";
-   } else if (
-      (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors")  || 
-      (playerSelection.toLowerCase() === "paper" && computerSelection === "rock")  || 
-      (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper")
-   ) {
-      return "player W";
-      ++playerScore;
+   if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
+      computerScore++;
+      return 'Computer W';
+   } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
+      playerScore++;
+      return 'Player W';
+   } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
+      playerScore++;
+      return 'Player W';
+   } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
+      computerScore++;
+      return 'Computer W';
+   } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
+      computerScore++;
+      return 'Computer W';
+   } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
+      playerScore++;
+      return 'Player W';
    } else {
-      return "computer W";
-      ++computeScore;
+      return 'Tied';
    }
 
 }
@@ -35,13 +40,19 @@ function playRound(playerSelection, computerSelection) {
 function game () {
 
    for (let i = 0; i < 5; i++) {
-      console.log (playRound());
+      let playerSelection = prompt('Will you select Rock, Paper, or Scissors?');
+      let computerSelection = getComputerChoice();
+      console.log(playRound(playerSelection,computerSelection));
    }
 
-   if (playerScore > computeScore) {
-      return "Rare player victory";
+   if (playerScore > computerScore) {
+      console.log('Rare player victory. Score of ' + playerScore + ' to '  + computerScore);
+   } else if (computerScore > playerScore) {
+      console.log('Common player L. Score of ' + playerScore + ' to '  + computerScore); 
    } else {
-      return "Common computer victory";
+      console.log('Tied the game!');
    }
 
 }
+
+game();
